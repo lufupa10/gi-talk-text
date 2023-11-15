@@ -1,0 +1,180 @@
+import React, { useState, useRef } from 'react';
+
+const Chatbot = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+
+  const handleToggleChat = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const chatBoxRef = useRef(null);
+
+  const handleSendMessage = () => {
+    if (!input.trim()) {
+      return;
+    }
+
+    // Adiciona a mensagem do usuário ao histórico
+    const userMessage = { text: input, type: 'user' };
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setInput('');
+
+    // Simula uma resposta do chatbot após um pequeno atraso
+    setTimeout(() => {
+      const botMessage = { text: getChatbotResponse(input), type: 'bot' };
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
+
+      // Ao enviar uma mensagem, faz scroll para o final do chatBox
+      if (chatBoxRef.current) {
+        chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+      }
+    }, 500);
+  };
+
+  const getChatbotResponse = (userInput) => {
+    // Lógica para gerar respostas do chatbot
+    if (userInput.toLowerCase().includes('como configura')) {
+      return 'Tenho aqui o link';
+    } else if (userInput.toLowerCase().includes('qual é o seu nome')) {
+      return 'Me chamam de Chatbot. Como posso ajudar você hoje?';
+    } else {
+      return 'Desculpe, não entendi. Pode reformular a pergunta?';
+    }
+  };
+
+  return (
+    <div style={isOpen ? styles.openContainer : styles.closedContainer}>
+      {isOpen && (
+        <>
+          <div style={styles.header}>
+            <span>Chatbot</span>
+            <div style={styles.closeButton} onClick={handleToggleChat}>
+              &times;
+            </div>
+          </div>
+          <div ref={chatBoxRef} style={styles.chatBox}>
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`message ${message.type}`}
+                style={message.type === 'user' ? styles.userMessage : styles.botMessage}
+              >
+                <span style={message.type === 'user' ? styles.userLabel : styles.botLabel}>
+                  {message.type === 'user' ? 'Você:' : 'Chatbot:'}
+                </span>
+                {message.text}
+              </div>
+            ))}
+          </div>
+          <div style={styles.inputContainer}>
+            <input
+              type="text"
+              placeholder="Digite sua pergunta..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <div style={styles.sendButton} onClick={handleSendMessage}>
+              Enviar
+            </div>
+          </div>
+        </>
+      )}
+      {!isOpen && (
+        <div style={styles.closedButton} onClick={handleToggleChat}>
+          Abrir Chat
+        </div>
+      )}
+    </div>
+  );
+};
+
+const styles = {
+  openContainer: {
+    position: 'fixed',
+    bottom: 0,
+    right: 0,
+    width: '300px',
+    backgroundColor: '#fafafa',
+    border: '1px solid #ccc',
+    borderTopLeftRadius: '8px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    overflow: 'hidden',
+  },
+  closedContainer: {
+    position: 'fixed',
+    bottom: 0,
+    right: 0,
+    width: '100px',
+    backgroundColor: '#3498db',
+    color: '#fff',
+    borderTopLeftRadius: '8px',
+    cursor: 'pointer',
+    textAlign: 'center',
+  },
+  header: {
+    background: '#3498db',
+    color: '#fff',
+    padding: '8px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  chatBox: {
+    maxHeight: '200px',
+    overflowY: 'auto',
+    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column-reverse', // Inverte a ordem das mensagens para mostrar as mais recentes no topo
+  },
+  userMessage: {
+    background: '#3498db',
+    color: '#fff',
+    borderRadius: '8px 8px 0 8px',
+    margin: '4px 4px 4px auto',
+  },
+  botMessage: {
+    background: '#2ecc71',
+    color: '#fff',
+    borderRadius: '8px 8px 8px 0',
+    margin: '4px auto 4px 4px',
+  },
+  userLabel: {
+    color: '#3498db',
+    marginRight: '4px',
+  },
+  botLabel: {
+    color: '#2ecc71',
+    marginRight: '4px',
+  },
+  inputContainer: {
+    display: 'flex',
+    padding: '10px',
+  },
+  sendButton: {
+    backgroundColor: '#2ecc71',
+    color: '#fff',
+    padding: '8px',
+    marginLeft: '8px',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
+  closeButton: {
+    backgroundColor: '#e74c3c',
+    color: '#fff',
+    padding: '8px',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
+  closedButton: {
+    background: '#3498db',
+    color: '#fff',
+    padding: '8px',
+    borderTopLeftRadius: '8px',
+    cursor: 'pointer',
+    textAlign: 'center',
+  },
+};
+
+export default Chatbot;
