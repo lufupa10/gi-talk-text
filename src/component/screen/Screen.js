@@ -1,5 +1,33 @@
 
+import { useEffect, useRef } from "react";
 import "../../App.css"
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+
+
+
+const AutoScrollDown = ({ text }) => {
+    const scrollContainerRef = useRef(null);
+
+    useEffect(() => {
+        scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }, [text]);
+
+    const psConfig = {
+        wheelPropagation: false, // Impede a rolagem com a roda do mouse
+        suppressScrollX: true, // Oculta a barra de rolagem horizontal
+    };
+
+    return (
+        <PerfectScrollbar
+            containerRef={(ref) => (scrollContainerRef.current = ref)}
+            options={psConfig}
+            style={{ height: '300px', }}
+        >
+            {text}
+        </PerfectScrollbar>
+    );
+};
 
 const Screen = ({
     setTextToCopy,
@@ -9,8 +37,7 @@ const Screen = ({
 
     return (
         <>
-
-            <div className="main-content" onClick={() => setTextToCopy(transcript)}>
+            <div className="main-content">
                 {helpe === "ok" ? <>
 
                     <div>
@@ -29,7 +56,7 @@ const Screen = ({
                         a chave: 2522355425235325253."
 
                     </div>
-                </> : transcript}
+                </> : <AutoScrollDown text={transcript} />}
             </div>
         </>
     )

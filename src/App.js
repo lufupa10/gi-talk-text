@@ -12,14 +12,20 @@ import Screen from "./component/screen/Screen.js";
 
 const App = () => {
     const [textToCopy, setTextToCopy] = useState();
+    const [messageFromChild, setMessageFromChild] = useState('');
+    console.log('ME CHAMAAAA', messageFromChild);
     const [helpe, setHelpe] = useState();
     const [isCopied, setCopied] = useClipboard(textToCopy, {
         successDuration: 1000
     });
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('pt-br');
     const [intervalActive, setIntervalActive] = useState(false);
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
+
+    const handleMessageFromChild = (message) => {
+        setMessageFromChild(message);
+      };
 
     useEffect(() => {
         let scrollInterval;
@@ -31,7 +37,7 @@ const App = () => {
                     top: windowHeight,
                     behavior: 'smooth',
                 });
-            }, 1000);
+            }, 10000);
         }
 
         return () => clearInterval(scrollInterval);
@@ -75,7 +81,6 @@ const App = () => {
 
     return (
         <>
-        {/* <div><Advertisement></Advertisement></div> */}
             <div className="container">
                 {/* <h2>GiTalkText</h2> */}
                 <div className="center-container">
@@ -90,7 +95,12 @@ const App = () => {
                     <option value="pt-br">Português</option>
                 </select>
                 <br />
-                <Screen setTextToCopy={setTextToCopy} transcript={transcript} helpe={helpe}></Screen>
+                <div onClick={() => setTextToCopy(transcript)}>
+                { transcript || helpe ? (
+                    <Screen setTextToCopy={setTextToCopy} transcript={transcript} helpe={helpe}
+                    sendMessageToParent={handleMessageFromChild}></Screen>
+                ): null}
+                </div>
                 <div className="btn-style">
                     <button title="Copiar" onClick={setCopied}>
                         {isCopied ? <FaCheck color="black" size="2em" /> : <FaCopy color="black" size="2em" />}

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { FaWindowClose } from 'react-icons/fa';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,10 +36,16 @@ const Chatbot = () => {
 
   const getChatbotResponse = (userInput) => {
     // Lógica para gerar respostas do chatbot
-    if (userInput.toLowerCase().includes('como configura')) {
-      return 'Tenho aqui o link';
-    } else if (userInput.toLowerCase().includes('qual é o seu nome')) {
-      return 'Me chamam de Chatbot. Como posso ajudar você hoje?';
+    if (userInput.toLowerCase().includes('como faz para configurar?')) {
+      return 'para configirar temos o link do pdf no menu [I]';
+    } else if (userInput.toLowerCase().includes('como configura?')) {
+      return 'Para configirar temos o link do pdf no menu [I]';
+    }
+      else if (userInput.toLowerCase().includes('como faz para legendar?')) {
+        return 'para legendar segue o tutorial linl[]'
+      }
+        else if (userInput.toLowerCase().includes('como configurar?')) {
+          return 'para configurar segue o linl[] do tutorial'
     } else {
       return 'Desculpe, não entendi. Pode reformular a pergunta?';
     }
@@ -49,11 +56,9 @@ const Chatbot = () => {
       {isOpen && (
         <>
           <div style={styles.header}>
-            <span>Chatbot</span>
-            <div style={styles.closeButton} onClick={handleToggleChat}>
-              &times;
+            <span>Chat exclusivo para questões relacionadas à configuração da Gi.</span>
+            <div style={styles.closeButton} onClick={handleToggleChat}><FaWindowClose color="black" size="2em" /></div>
             </div>
-          </div>
           <div ref={chatBoxRef} style={styles.chatBox}>
             {messages.map((message, index) => (
               <div
@@ -97,8 +102,6 @@ const styles = {
     right: 0,
     width: '300px',
     backgroundColor: '#fafafa',
-    border: '1px solid #ccc',
-    borderTopLeftRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     overflow: 'hidden',
   },
@@ -107,15 +110,15 @@ const styles = {
     bottom: 0,
     right: 0,
     width: '100px',
-    backgroundColor: '#3498db',
+    backgroundColor: 'white',
     color: '#fff',
     borderTopLeftRadius: '8px',
     cursor: 'pointer',
     textAlign: 'center',
   },
   header: {
-    background: '#3498db',
-    color: '#fff',
+    background: '#fff',
+    color: 'black',
     padding: '8px',
     display: 'flex',
     justifyContent: 'space-between',
@@ -161,17 +164,15 @@ const styles = {
     cursor: 'pointer',
   },
   closeButton: {
-    backgroundColor: '#e74c3c',
     color: '#fff',
     padding: '8px',
     borderRadius: '4px',
     cursor: 'pointer',
   },
   closedButton: {
-    background: '#3498db',
-    color: '#fff',
+    background: 'white',
+    color: 'black',
     padding: '8px',
-    borderTopLeftRadius: '8px',
     cursor: 'pointer',
     textAlign: 'center',
   },
