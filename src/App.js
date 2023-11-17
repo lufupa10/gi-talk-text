@@ -7,13 +7,10 @@ import { FaPlay, FaStop, FaTrash, FaCopy, FaCheck, FaInfo } from 'react-icons/fa
 import Popup from "./component/popup/Popup.js";
 import Chatbot from "./component/chatbot/Chatbot.js";
 import Screen from "./component/screen/Screen.js";
-// import Advertisement from "./component/advertisement/Advertisement.js";
 
 
 const App = () => {
     const [textToCopy, setTextToCopy] = useState();
-    const [messageFromChild, setMessageFromChild] = useState('');
-    console.log('ME CHAMAAAA', messageFromChild);
     const [helpe, setHelpe] = useState();
     const [isCopied, setCopied] = useClipboard(textToCopy, {
         successDuration: 1000
@@ -22,10 +19,6 @@ const App = () => {
     const [intervalActive, setIntervalActive] = useState(false);
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
-
-    const handleMessageFromChild = (message) => {
-        setMessageFromChild(message);
-      };
 
     useEffect(() => {
         let scrollInterval;
@@ -82,7 +75,6 @@ const App = () => {
     return (
         <>
             <div className="container">
-                {/* <h2>GiTalkText</h2> */}
                 <div className="center-container">
                     <img className="centered-image" src="gi.png" alt="Descrição da Imagem" />
                     <div className="subtitle">Conversão de aúdio em texto.</div>
@@ -97,8 +89,7 @@ const App = () => {
                 <br />
                 <div onClick={() => setTextToCopy(transcript)}>
                 { transcript || helpe ? (
-                    <Screen setTextToCopy={setTextToCopy} transcript={transcript} helpe={helpe}
-                    sendMessageToParent={handleMessageFromChild}></Screen>
+                    <Screen setTextToCopy={setTextToCopy} transcript={transcript} helpe={helpe}></Screen>
                 ): null}
                 </div>
                 <div className="btn-style">
