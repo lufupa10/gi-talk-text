@@ -22,7 +22,7 @@ const AutoScrollDown = ({ text }) => {
         <PerfectScrollbar
             containerRef={(ref) => (scrollContainerRef.current = ref)}
             options={psConfig}
-            style={{ height: '300px', }}
+            style={{ width: '730px', fontSize: '27px'}}
         >
             {text}
         </PerfectScrollbar>

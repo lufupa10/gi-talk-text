@@ -30,12 +30,20 @@ const App = () => {
                     top: windowHeight,
                     behavior: 'smooth',
                 });
-            }, 10000);
+            }, 20000);
         }
 
         return () => clearInterval(scrollInterval);
     }, [intervalActive]);
 
+    useEffect(() => {
+       let teste = setInterval(() => {
+            console.log("O QUE TEMOS TUDO");
+            resetTranscript();
+            
+        }, 10000);
+        return () => clearInterval(teste);
+    }, []);
     const toggleInterval = () => {
         setIntervalActive((prev) => !prev);
     };
@@ -88,9 +96,7 @@ const App = () => {
                 </select>
                 <br />
                 <div onClick={() => setTextToCopy(transcript)}>
-                { transcript || helpe ? (
                     <Screen setTextToCopy={setTextToCopy} transcript={transcript} helpe={helpe}></Screen>
-                ): null}
                 </div>
                 <div className="btn-style">
                     <button title="Copiar" onClick={setCopied}>
