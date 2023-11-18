@@ -20,25 +20,24 @@ const App = () => {
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
 
-    useEffect(() => {
-        let scrollInterval;
+    // useEffect(() => {
+    //     let scrollInterval;
 
-        if (intervalActive) {
-            scrollInterval = setInterval(() => {
-                const windowHeight = window.innerHeight;
-                window.scrollTo({
-                    top: windowHeight,
-                    behavior: 'smooth',
-                });
-            }, 20000);
-        }
+    //     if (intervalActive) {
+    //         scrollInterval = setInterval(() => {
+    //             const windowHeight = window.innerHeight;
+    //             window.scrollTo({
+    //                 top: windowHeight,
+    //                 behavior: 'smooth',
+    //             });
+    //         }, 20000);
+    //     }
 
-        return () => clearInterval(scrollInterval);
-    }, [intervalActive]);
+    //     return () => clearInterval(scrollInterval);
+    // }, [intervalActive]);
 
     useEffect(() => {
        let teste = setInterval(() => {
-            console.log("O QUE TEMOS TUDO");
             resetTranscript();
             
         }, 10000);
