@@ -16,6 +16,7 @@ const App = () => {
         successDuration: 1000
     });
     const [selectedOption, setSelectedOption] = useState('pt-br');
+    const [selectedOptionScreen, setSelectedOptionScreen] = useState();
     const [intervalActive, setIntervalActive] = useState(false);
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
@@ -38,11 +39,10 @@ const App = () => {
 
     useEffect(() => {
        let teste = setInterval(() => {
-            resetTranscript();
-            
+        selectedOptionScreen === 'noRunningTexthHistory' && resetTranscript() ;       
         }, 10000);
         return () => clearInterval(teste);
-    }, []);
+    }, [selectedOptionScreen]);
     const toggleInterval = () => {
         setIntervalActive((prev) => !prev);
     };
@@ -53,6 +53,11 @@ const App = () => {
 
     const handleChange = (e) => {
         setSelectedOption(e.target.value);
+    };
+
+    const handleChangeScreen = (e) => {
+        setSelectedOptionScreen(e.target.value);
+        resetTranscript();
     };
 
     function handlerHelpe() {
@@ -84,14 +89,19 @@ const App = () => {
             <div className="container">
                 <div className="center-container">
                     <img className="centered-image" src="gi.png" alt="Descrição da Imagem" />
-                    <div className="subtitle">Conversão de aúdio em texto.</div>
+                    <div className="subtitle">GITALKTEXT - Conversão de aúdio em texto.</div>
                 </div>
                 <br />
 
                 <select id="options" value={selectedOption} onChange={handleChange}>
-                    <option value="">Seleciona a legenda</option>
-                    <option value="en-US">Inglês</option>
-                    <option value="pt-br">Português</option>
+                    <option value="">Seleciona a conversão</option>
+                    <option value="en-US">Com aúdio inglês</option>
+                    <option value="pt-br">Com aúdio em Português</option>
+                </select>
+                <select id="options" value={selectedOptionScreen} onChange={handleChangeScreen}>
+                    <option value="">Opção de visualização</option>
+                    <option value="runningText">Com texto corrido</option>
+                    <option value="noRunningTexthHistory">Sem texto corrido</option>
                 </select>
                 <br />
                 <div onClick={() => setTextToCopy(transcript)}>
