@@ -189,3 +189,10 @@ button:hover {
   }
 }
 
+select {
+  height: 33px;
+    text-align: center;
+    font-size: 18px;
+    background-color: white;
+    margin-right: 13px;
+}

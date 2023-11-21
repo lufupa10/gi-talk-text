@@ -4,6 +4,7 @@ import "./App.css"
 import ReactGA from 'react-ga';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useClipboard from "react-use-clipboard";
+import copy from 'clipboard-copy';
 import { FaPlay, FaStop, FaTrash, FaCopy, FaCheck, FaInfo } from 'react-icons/fa';
 import Popup from "./component/popup/Popup.js";
 import Chatbot from "./component/chatbot/Chatbot.js";
@@ -17,7 +18,6 @@ const App = () => {
     });
     const [selectedOption, setSelectedOption] = useState('pt-br');
     const [selectedOptionScreen, setSelectedOptionScreen] = useState();
-    const [intervalActive, setIntervalActive] = useState(false);
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
 
@@ -49,6 +49,11 @@ const App = () => {
         ReactGA.pageview(window.location.pathname + window.location.search);
       }, []);
 
+      const handleCopyClick = () => {
+        copy(transcript);
+        setCopied(true);
+      };
+
       const trackPage = (page) => {
         ReactGA.set({ page });
         ReactGA.pageview(page);
@@ -74,7 +79,6 @@ const App = () => {
     function handlerHelpe() {
         SpeechRecognition.stopListening()
         resetTranscript();
-        setIntervalActive(false);
         setHelpe("ok")
     }
 
@@ -84,14 +88,12 @@ const App = () => {
     }
 
     function handlerClean() {
-        setIntervalActive(true);
         setHelpe("")
         resetTranscript();
     }
 
     function handleraStop() {
         SpeechRecognition.stopListening();
-        setIntervalActive(false);
     }
 
     return (
@@ -102,7 +104,7 @@ const App = () => {
                     <div className="subtitle">GITALKTEXT - Conversão de aúdio em texto.</div>
                 </div>
                 <br />
-
+                
                 <select id="options" value={selectedOption} onChange={handleChange}>
                     <option value="">Seleciona a conversão</option>
                     <option value="en-US">Aúdio inglês</option>
@@ -118,7 +120,7 @@ const App = () => {
                     <Screen setTextToCopy={setTextToCopy} transcript={transcript} helpe={helpe}></Screen>
                 </div>
                 <div className="btn-style">
-                    <button title="Copiar" onClick={setCopied}>
+                    <button title="Copiar" onClick={handleCopyClick}>
                         {isCopied ? <FaCheck color="black" size="2em" /> : <FaCopy color="black" size="2em" />}
                     </button>
                     <button title="Ouvir" onClick={handlerHear}><FaPlay color="black" size="2em" /></button>
