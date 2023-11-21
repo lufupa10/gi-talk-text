@@ -9,7 +9,6 @@ import Popup from "./component/popup/Popup.js";
 import Chatbot from "./component/chatbot/Chatbot.js";
 import Screen from "./component/screen/Screen.js";
 
-
 const App = () => {
     const [textToCopy, setTextToCopy] = useState();
     const [helpe, setHelpe] = useState();
@@ -39,10 +38,10 @@ const App = () => {
     // }, [intervalActive]);
 
     useEffect(() => {
-       let teste = setInterval(() => {
+       let chooseText = setInterval(() => {
         selectedOptionScreen === 'noRunningTexthHistory' && resetTranscript() ;       
         }, 10000);
-        return () => clearInterval(teste);
+        return () => clearInterval(chooseText);
     }, [selectedOptionScreen]);
 
     useEffect(() => {
@@ -58,10 +57,6 @@ const App = () => {
       useEffect(() => {
         trackPage(window.location.pathname);
       }, []);
-
-    const toggleInterval = () => {
-        setIntervalActive((prev) => !prev);
-    };
     
     if (!browserSupportsSpeechRecognition) {
         return null
@@ -85,7 +80,6 @@ const App = () => {
 
     function handlerHear() {
         startListening();
-        toggleInterval();
         setHelpe("")
     }
 
@@ -111,8 +105,8 @@ const App = () => {
 
                 <select id="options" value={selectedOption} onChange={handleChange}>
                     <option value="">Seleciona a conversão</option>
-                    <option value="en-US">Com aúdio inglês</option>
-                    <option value="pt-br">Com aúdio em Português</option>
+                    <option value="en-US">Aúdio inglês</option>
+                    <option value="pt-br">Aúdio Português</option>
                 </select>
                 <select id="options" value={selectedOptionScreen} onChange={handleChangeScreen}>
                     <option value="">Opção de visualização</option>

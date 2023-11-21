@@ -4,8 +4,6 @@ import "../../App.css"
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
-
-
 const AutoScrollDown = ({ text }) => {
     const scrollContainerRef = useRef(null);
 
