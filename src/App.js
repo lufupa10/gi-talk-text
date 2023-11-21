@@ -1,8 +1,9 @@
 
+import { useState, useEffect } from "react";
 import "./App.css"
+import ReactGA from 'react-ga';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useClipboard from "react-use-clipboard";
-import { useState, useEffect } from "react";
 import { FaPlay, FaStop, FaTrash, FaCopy, FaCheck, FaInfo } from 'react-icons/fa';
 import Popup from "./component/popup/Popup.js";
 import Chatbot from "./component/chatbot/Chatbot.js";
@@ -43,10 +44,25 @@ const App = () => {
         }, 10000);
         return () => clearInterval(teste);
     }, [selectedOptionScreen]);
+
+    useEffect(() => {
+        ReactGA.initialize('G-DCS1W7GQLT');
+        ReactGA.pageview(window.location.pathname + window.location.search);
+      }, []);
+
+      const trackPage = (page) => {
+        ReactGA.set({ page });
+        ReactGA.pageview(page);
+      };
+
+      useEffect(() => {
+        trackPage(window.location.pathname);
+      }, []);
+
     const toggleInterval = () => {
         setIntervalActive((prev) => !prev);
     };
-
+    
     if (!browserSupportsSpeechRecognition) {
         return null
     }

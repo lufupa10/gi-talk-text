@@ -23,6 +23,7 @@ const AutoScrollDown = ({ text }) => {
             containerRef={(ref) => (scrollContainerRef.current = ref)}
             options={psConfig}
             style={{ width: '730px', fontSize: '27px', height: '400px'}}
+            
         >
             {text}
         </PerfectScrollbar>
@@ -52,8 +53,8 @@ const Screen = ({
 
                         <h3>Doação</h3>
                         A Gi é uma aplicação totalmente gratuita. Se deseja contribuir para a sustentabilidade do projeto,
-                        entre em contato pelo e-mail: daniel.lufupa@hotmail.com, ou realize um PIX de qualquer valor para
-                        a chave: 2522355425235325253."
+                        entre em contato pelo nosso instagram @gitalktext ou realize um PIX 
+                        de qualquer valor para a chave: 2522355425235325253."
 
                     </div>
                 </> : <AutoScrollDown text={transcript} />}
