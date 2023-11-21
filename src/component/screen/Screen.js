@@ -51,8 +51,8 @@ const Screen = ({
 
                         <h3>Doação</h3>
                         A Gi é uma aplicação totalmente gratuita. Se deseja contribuir para a sustentabilidade do projeto,
-                        entre em contato pelo nosso instagram @gitalktext ou realize um PIX 
-                        de qualquer valor para a chave: 2522355425235325253."
+                        entre em contato pelo nosso instagram<a href='https://instagram.com/gi.talktext?igshid=NzZlODBkYWE4Ng==' target="_blank" rel="noopener noreferrer">
+                        @gitalktext</a> ou realize um PIX de qualquer valor para a chave: 2522355425235325253."
 
                     </div>
                 </> : <AutoScrollDown text={transcript} />}
