@@ -9,6 +9,7 @@ import { FaPlay, FaStop, FaTrash, FaCopy, FaCheck, FaInfo } from 'react-icons/fa
 import Popup from "./component/popup/Popup.js";
 import Chatbot from "./component/chatbot/Chatbot.js";
 import Screen from "./component/screen/Screen.js";
+import AdBannerCarousel from "./component/banner/AdBannerCarousel.js";
 
 const App = () => {
     const [textToCopy, setTextToCopy] = useState();
@@ -99,6 +100,7 @@ const App = () => {
     return (
         <>
             <div className="container">
+                < AdBannerCarousel></AdBannerCarousel>
                 <div className="center-container">
                     <img className="centered-image" src="gi.png" alt="Descrição da Imagem" />
                     <div className="subtitle">GITALKTEXT - Conversão de aúdio em texto.</div>

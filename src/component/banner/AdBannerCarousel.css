@@ -1,0 +1,38 @@
+/* AdBannerCarousel.css */
+
+.ad-banner-carousel {
+  position: fixed;
+  top: 15%; /* Ajuste conforme necessário para posicionar verticalmente */
+  right: 0; /* Posiciona no canto direito */
+  transform: translateY(-50%);
+  width: 300px;
+  margin: 20px;
+}
+
+.ad-banner-carousel img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.ad-banner-carousel img:hover {
+  transform: scale(1.05);
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text-adjustmen {
+  position: absolute;
+  margin-bottom: 0px !important
+}
