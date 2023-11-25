@@ -46,6 +46,7 @@ const App = () => {
 
     useEffect(() => {
         ReactGA.initialize('G-DCS1W7GQLT');
+        console.log('ANALYTIC');
         ReactGA.pageview(window.location.pathname + window.location.search);
       }, []);
 
@@ -101,7 +102,8 @@ const App = () => {
             <div className="container">
                 <div className="center-container">
                     <img className="centered-image" src="gi.png" alt="Descrição da Imagem" />
-                    <div className="subtitle">GITALKTEXT - Conversão de aúdio em texto.</div>
+                    <div className="subtitle">GITALKTEXT</div>
+                    <p className="description">Conversão de aúdio em texto.</p>
                 </div>
                 <br />
                 
