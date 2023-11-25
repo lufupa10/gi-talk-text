@@ -210,3 +210,7 @@ select {
   border: none;
   outline: none;
 }
+
+.helpe-text {
+  text-align: center;
+}
