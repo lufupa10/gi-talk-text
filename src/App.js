@@ -38,17 +38,19 @@ const App = () => {
     // }, [intervalActive]);
 
     useEffect(() => {
+        // Inicializar o Google Analytics com seu ID de propriedade
+        ReactGA.initialize('G-DCS1W7GQLT');
+        
+        // Rastrear a visualização inicial da página
+        ReactGA.pageview(window.location.pathname + window.location.search);
+      }, []);
+
+    useEffect(() => {
        let chooseText = setInterval(() => {
         selectedOptionScreen === 'noRunningTexthHistory' && resetTranscript() ;       
         }, 10000);
         return () => clearInterval(chooseText);
     }, [selectedOptionScreen]);
-
-    useEffect(() => {
-        ReactGA.initialize('G-DCS1W7GQLT');
-        console.log('ANALYTIC');
-        ReactGA.pageview(window.location.pathname + window.location.search);
-      }, []);
 
       const handleCopyClick = () => {
         copy(transcript);
