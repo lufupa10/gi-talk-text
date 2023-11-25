@@ -111,7 +111,7 @@ const App = () => {
                 
                 <select id="options" value={selectedOption} onChange={handleChange}>
                     <option value="" disabled selected>Seleciona a conversão</option>
-                    <option value="en-US">inglês</option>
+                    <option value="en-US">Inglês</option>
                     <option value="pt-br">Português</option>
                 </select>
                 <select id="options" value={selectedOptionScreen} onChange={handleChangeScreen}>
@@ -127,9 +127,9 @@ const App = () => {
                     <button title="Copiar" onClick={handleCopyClick}>
                         {isCopied ? <FaCheck color="black" size="2em" /> : <FaCopy color="black" size="2em" />}
                     </button>
-                    <button title="Ouvir" onClick={handlerHear}><FaPlay color="black" size="2em" /></button>
+                    <button title="Começar" onClick={handlerHear}><FaPlay color="black" size="2em" /></button>
                     {/* <button title="Parar" onClick={handleraStop}><FaStop color="black" size="2em" /></button> */}
-                    <button title="Limpar" onClick={handlerClean}><FaTrash color="black" size="2em" /></button>
+                    <button title="Excluir" onClick={handlerClean}><FaTrash color="black" size="2em" /></button>
                     <button title="Informações e configurações" onClick={handlerHelpe}><FaInfo color="black" size="2em" /></button>
                 </div>
                 <Popup></Popup>
