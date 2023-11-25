@@ -1,10 +1,12 @@
 import React from 'react';
+import ReactGA  from 'react-ga';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+ReactGA.initialize('G-DCS1W7GQLT');
 root.render(
   <React.StrictMode>
     <App />

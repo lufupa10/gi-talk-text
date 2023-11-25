@@ -1,11 +1,11 @@
 
 import { useState, useEffect } from "react";
 import "./App.css"
-import ReactGA from 'react-ga';
+import ReactGA  from 'react-ga';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useClipboard from "react-use-clipboard";
 import copy from 'clipboard-copy';
-import { FaPlay, FaStop, FaTrash, FaCopy, FaCheck, FaInfo } from 'react-icons/fa';
+import { FaPlay, FaTrash, FaCopy, FaCheck, FaInfo } from 'react-icons/fa';
 import Popup from "./component/popup/Popup.js";
 import Chatbot from "./component/chatbot/Chatbot.js";
 import Screen from "./component/screen/Screen.js";
@@ -21,26 +21,8 @@ const App = () => {
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
 
-    // useEffect(() => {
-    //     let scrollInterval;
-
-    //     if (intervalActive) {
-    //         scrollInterval = setInterval(() => {
-    //             const windowHeight = window.innerHeight;
-    //             window.scrollTo({
-    //                 top: windowHeight,
-    //                 behavior: 'smooth',
-    //             });
-    //         }, 20000);
-    //     }
-
-    //     return () => clearInterval(scrollInterval);
-    // }, [intervalActive]);
-
     useEffect(() => {
-        // Inicializar o Google Analytics com seu ID de propriedade
         ReactGA.initialize('G-DCS1W7GQLT');
-
         // Rastrear a visualização inicial da página
         ReactGA.pageview(window.location.pathname + window.location.search);
       }, []);
@@ -57,15 +39,6 @@ const App = () => {
         setCopied(true);
       };
 
-      const trackPage = (page) => {
-        ReactGA.set({ page });
-        ReactGA.pageview(page);
-      };
-
-      useEffect(() => {
-        trackPage(window.location.pathname);
-      }, []);
-    
     if (!browserSupportsSpeechRecognition) {
         return null
     }
@@ -93,10 +66,6 @@ const App = () => {
     function handlerClean() {
         setHelpe("")
         resetTranscript();
-    }
-
-    function handleraStop() {
-        SpeechRecognition.stopListening();
     }
 
     return (
