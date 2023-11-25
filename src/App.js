@@ -40,7 +40,7 @@ const App = () => {
     useEffect(() => {
         // Inicializar o Google Analytics com seu ID de propriedade
         ReactGA.initialize('G-DCS1W7GQLT');
-        
+
         // Rastrear a visualização inicial da página
         ReactGA.pageview(window.location.pathname + window.location.search);
       }, []);
@@ -110,12 +110,12 @@ const App = () => {
                 <br />
                 
                 <select id="options" value={selectedOption} onChange={handleChange}>
-                    <option value="">Seleciona a conversão</option>
-                    <option value="en-US">Aúdio inglês</option>
-                    <option value="pt-br">Aúdio Português</option>
+                    <option value="" disabled selected>Seleciona a conversão</option>
+                    <option value="en-US">inglês</option>
+                    <option value="pt-br">Português</option>
                 </select>
                 <select id="options" value={selectedOptionScreen} onChange={handleChangeScreen}>
-                    <option value="">Opção de visualização</option>
+                    <option value="" disabled selected>Opção de visualização</option>
                     <option value="runningText">Com texto corrido</option>
                     <option value="noRunningTexthHistory">Sem texto corrido</option>
                 </select>
@@ -128,7 +128,7 @@ const App = () => {
                         {isCopied ? <FaCheck color="black" size="2em" /> : <FaCopy color="black" size="2em" />}
                     </button>
                     <button title="Ouvir" onClick={handlerHear}><FaPlay color="black" size="2em" /></button>
-                    <button title="Parar" onClick={handleraStop}><FaStop color="black" size="2em" /></button>
+                    {/* <button title="Parar" onClick={handleraStop}><FaStop color="black" size="2em" /></button> */}
                     <button title="Limpar" onClick={handlerClean}><FaTrash color="black" size="2em" /></button>
                     <button title="Informações e configurações" onClick={handlerHelpe}><FaInfo color="black" size="2em" /></button>
                 </div>
