@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../../App.css"
 import ReactGA4 from "react-ga4";
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -7,6 +7,22 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const AutoScrollDown = ({ text }) => {
     const scrollContainerRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    console.log('TUDOOOOOO', isMobile);
+
+    useEffect(() => {
+        const checkScreenWidth = () => {
+          setIsMobile(window.innerWidth <= 768); 
+        };
+    
+        checkScreenWidth();
+        window.addEventListener('resize', checkScreenWidth);
+
+        return () => {
+          window.removeEventListener('resize', checkScreenWidth);
+        };
+      }, []);
 
     useEffect(() => {
         scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
@@ -21,7 +37,7 @@ const AutoScrollDown = ({ text }) => {
         <PerfectScrollbar
             containerRef={(ref) => (scrollContainerRef.current = ref)}
             options={psConfig}
-            style={{ width: '730px', fontSize: '27px', height: '400px'}}
+            style={{ width: isMobile ? '' : '730px', fontSize: '27px', height: '400px'}}
             
         >
             {text}
