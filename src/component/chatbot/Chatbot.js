@@ -56,7 +56,7 @@ const Chatbot = () => {
       {isOpen && (
         <>
           <div style={styles.header}>
-            <span>Chat exclusivo para questões relacionadas à configuração da Gi.</span>
+            <div>Chat exclusivo para questões relacionadas à configuração da Gi.</div>
             <div style={styles.closeButton} onClick={handleToggleChat}><FaWindowClose color="black" size="2em" /></div>
             </div>
           <div ref={chatBoxRef} style={styles.chatBox}>

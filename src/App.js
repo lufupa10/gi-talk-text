@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import "./App.css"
-import ReactGA  from 'react-ga';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useClipboard from "react-use-clipboard";
 import copy from 'clipboard-copy';
@@ -20,12 +19,6 @@ const App = () => {
     const [selectedOptionScreen, setSelectedOptionScreen] = useState();
     const startListening = () => SpeechRecognition.startListening({ continuous: true, language: selectedOption });
     const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
-
-    useEffect(() => {
-        ReactGA.initialize('G-DCS1W7GQLT');
-        // Rastrear a visualização inicial da página
-        ReactGA.pageview(window.location.pathname + window.location.search);
-      }, []);
 
     useEffect(() => {
        let chooseText = setInterval(() => {

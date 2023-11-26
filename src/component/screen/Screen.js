@@ -1,6 +1,7 @@
 
 import { useEffect, useRef } from "react";
 import "../../App.css"
+import ReactGA4 from "react-ga4";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
@@ -28,11 +29,18 @@ const AutoScrollDown = ({ text }) => {
     );
 };
 
+
 const Screen = ({
     setTextToCopy,
     transcript,
     helpe
 }) => {
+
+    useEffect(() => {     
+        ReactGA4.initialize('G-DCS1W7GQLT');
+        ReactGA4.send({hitType: 'pageview', page: window.location.pathname + window.location.search});
+    
+      }, []);
 
     return (
         <>
