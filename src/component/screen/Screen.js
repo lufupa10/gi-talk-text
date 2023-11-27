@@ -9,8 +9,6 @@ const AutoScrollDown = ({ text }) => {
     const scrollContainerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
 
-    console.log('TUDOOOOOO', isMobile);
-
     useEffect(() => {
         const checkScreenWidth = () => {
           setIsMobile(window.innerWidth <= 768); 
@@ -44,7 +42,6 @@ const AutoScrollDown = ({ text }) => {
         </PerfectScrollbar>
     );
 };
-
 
 const Screen = ({
     setTextToCopy,

@@ -195,10 +195,7 @@ button:hover {
 
 .description {
   font-size: 10px;
-  margin-left: 303px;
   margin-top: -100px;
-  vertical-align: inherit;
-  position: absolute;
 }
 
 select {
@@ -209,6 +206,7 @@ select {
   margin-right: 13px;
   border: none;
   outline: none;
+  margin-top: 5px;
 }
 
 .helpe-text {
