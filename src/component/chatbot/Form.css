@@ -1,0 +1,79 @@
+
+  .form-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .form-toggle {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .form-popup {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .form-container.open .form-popup {
+    display: block;
+    background-color: black;
+    height: 342px;
+  }
+  
+  form label,
+  form textarea,
+  form input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .formSend {
+    width: 67px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .formTitle {
+    color: white;
+    margin-bottom: 28px;
+  }
+
+  .formSuccess {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .formMsgTime {
+    margin-top: 10px;
+  }
+
+  
+
+  
+  

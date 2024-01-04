@@ -8,6 +8,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 const AutoScrollDown = ({ text }) => {
     const scrollContainerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
+    console.log('O que vem da variavel', isMobile);
 
     useEffect(() => {
         const checkScreenWidth = () => {
