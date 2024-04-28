@@ -74,7 +74,7 @@ const App = () => {
                 <select id="options" value={selectedOption} onChange={handleChange}>
                     <option value="" disabled selected>Seleciona a conversão</option>
                     <option value="es-ES">Espanhol</option>
-                    <option value="fr-FR">Francês</option>
+                    {/* <option value="fr-FR">Francês</option> */}
                     <option value="en-US">Inglês</option>
                     <option value="pt-br">Português</option>
                     
@@ -100,7 +100,7 @@ const App = () => {
                 <Popup></Popup>
                 <Chatbot></Chatbot>
             </div>
-            <footer><p className="footer-text">Desenvolvido por Daniel Lufupa - 2023</p></footer>
+            <footer><p className="footer-text">Desenvolvido por Daniel Lufupa - 2024</p></footer>
         </>
     );
 };
