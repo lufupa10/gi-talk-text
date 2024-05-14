@@ -23,7 +23,7 @@ const Chatbot = () => {
       timeButton();
     } else {
       try {
-        await axios.post('http://gitalk-back-email.onrender.com/send-email', {
+        await axios.post('https://gitalk-back-email.onrender.com/send-email', {
           name,
           email,
           message,
