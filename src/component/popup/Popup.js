@@ -17,6 +17,7 @@ const Popup = () => {
     }, []);
 
     const closePopup = () => {
+        window.open('https://www.dropbox.com/scl/fi/nqxlj87vusdna3vvkjiux/Manual-GiTalkText.pdf?rlkey=ygyl62zlqvderzm1dkxfrsucj&e=1&st=31xnz3kj&dl=0', '_blank', 'noopener,noreferrer');
         setShowPopup(false);
     };
 
