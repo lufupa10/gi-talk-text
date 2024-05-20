@@ -75,7 +75,7 @@ const Screen = ({ setTextToCopy, transcript, helpe }) => {
               contribuir para a sustentabilidade do projeto, entre em contato
               pelo nosso instagram
               <a
-                href="https://instagram.com/gi.talktext?igshid=NzZlODBkYWE4Ng=="
+                href="https://www.instagram.com/gitalktext?igsh=MTZwYmFvd2U0c2NtMQ=="
                 target="_blank"
                 rel="noopener noreferrer"
               >
