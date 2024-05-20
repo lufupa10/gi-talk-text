@@ -20,8 +20,18 @@ const Popup = () => {
         setShowPopup(false);
     };
 
-    const handlePdf = () => {
-        window.open('https://www.dropbox.com/scl/fi/nqxlj87vusdna3vvkjiux/Manual-GiTalkText.pdf?rlkey=ygyl62zlqvderzm1dkxfrsucj&e=1&st=31xnz3kj&dl=0', '_blank', 'noopener,noreferrer');
+    // const handlePdf = () => {
+    //     window.open('https://www.dropbox.com/scl/fi/nqxlj87vusdna3vvkjiux/Manual-GiTalkText.pdf?rlkey=ygyl62zlqvderzm1dkxfrsucj&e=1&st=31xnz3kj&dl=0', '_blank', 'noopener,noreferrer');
+    //     closePopup();
+    // }
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/manual.pdf';  // Caminho para o PDF na pasta public
+        link.download = 'Manual_GiTalkText';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         closePopup();
     }
 
@@ -44,7 +54,7 @@ const Popup = () => {
                                 Baixar Tutorial
                             </a> */}
                         <div className="popup-button">
-                            <button title="Baixar" onClick={handlePdf}><FaRegFilePdf color="black" size="2em" /></button>
+                            <button title="Baixar" onClick={handleDownload}><FaRegFilePdf color="black" size="2em" /></button>
                             <button title="Fechar" onClick={closePopup}><FaRegWindowClose color="black" size="2em" /></button>
                         </div>
                     </div>

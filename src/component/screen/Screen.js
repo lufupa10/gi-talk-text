@@ -66,8 +66,11 @@ const Screen = ({ setTextToCopy, transcript, helpe }) => {
               de todo o mundo podem agora acessar aulas ao vivo, palestras e
               qualquer tipo de áudio transcritos em tempo real para texto.
               <h3>Manual</h3>
-              Configurar a Gi no seu computador é fácil e descomplicado. Confira
-              nosso tutorial no YouTube para um guia passo a passo: [LINK]."
+              Configurar a Gi no seu computador é fácil e descomplicado. Confira o nosso manual
+              com passo a passo:{" "}
+              <a href="/manual.pdf" download="Manual_GiTalkText">
+              baixar o PDF
+              </a>
               <h3>Apoio</h3>A Gi é uma aplicação totalmente gratuita. Se deseja
               contribuir para a sustentabilidade do projeto, entre em contato
               pelo nosso instagram
