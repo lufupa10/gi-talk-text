@@ -14,15 +14,14 @@ const Chatbot = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    timeButton();
-    const { data, error } = await supabase
-      .from("enderecos")
-      .insert([{ name, email, message }]);
-
-    if (error) {
-      console.error("Error inserting data:", error);
+    if (name === "" || email === "" || message === "") {
+      setFormMsg("Preencha todos os campos");
+      timeButton();
     } else {
-      console.log("Data inserted successfully:", data);
+      const { data, error } = await supabase
+        .from("enderecos")
+        .insert([{ name, email, message }]);
+
       // Reset form after submission
       setName("");
       setEmail("");
