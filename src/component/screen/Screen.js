@@ -73,7 +73,7 @@ const Screen = ({ setTextToCopy, transcript, helpe }) => {
               </a>
               <h3>Apoio</h3>A Gi é uma aplicação totalmente gratuita. Se deseja
               contribuir para a sustentabilidade do projeto, entre em contato
-              pelo nosso instagram: 
+              pelo nosso instagram:{" "} 
               <a
                 href="https://www.instagram.com/gitalktext?igsh=MTZwYmFvd2U0c2NtMQ=="
                 target="_blank"
