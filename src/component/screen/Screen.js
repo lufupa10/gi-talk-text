@@ -68,7 +68,7 @@ const Screen = ({ setTextToCopy, transcript, helpe }) => {
               <h3>Manual</h3>
               Configurar a Gi no seu computador é fácil e descomplicado. Confira o nosso manual
               com passo a passo:{" "}
-              <a href="/manual.pdf" download="Manual_GiTalkText">
+              <a href="/manual_gitaltext.pdf" download="Manual_GiTalkText">
               baixar o PDF
               </a>
               <h3>Apoio</h3>A Gi é uma aplicação totalmente gratuita. Se deseja

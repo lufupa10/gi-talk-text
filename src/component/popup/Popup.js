@@ -27,7 +27,7 @@ const Popup = () => {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/manual.pdf';  // Caminho para o PDF na pasta public
+        link.href = '/manual_gitaltext.pdf';  // Caminho para o PDF na pasta public
         link.download = 'Manual_GiTalkText';
         document.body.appendChild(link);
         link.click();
