@@ -96,7 +96,7 @@ const Chatbot = () => {
           </span>
           {closeForms === true ? (
             <form>
-              <h4 className="formTitle">O que podemos ajudar?</h4>
+              <h4 className="formTitle">Em que podemos lhe ajudar?</h4>
               <label>
                 Nome:
                 <input
@@ -120,7 +120,7 @@ const Chatbot = () => {
               </label>
 
               <label>
-                Escreva Algo:
+                Escreva aqui:
                 <textarea
                   style={{ height: "100px" }}
                   name="problem"
