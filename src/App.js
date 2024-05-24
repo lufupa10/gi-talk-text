@@ -100,7 +100,7 @@ const App = () => {
                 <Popup></Popup>
                 <Chatbot></Chatbot>
             </div>
-            <footer><p className="footer-text">Desenvolvido por Daniel Lufupa - 2024</p></footer>
+            <footer><p className="footer-text">Desenvolvido por @Gitalktext - 2024</p></footer>
         </>
     );
 };
