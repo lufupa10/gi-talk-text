@@ -130,6 +130,13 @@ button:hover {
   /* Para centralizar verticalmente dentro do contêiner */
 }
 
+
+@media screen and (max-width: 768px) {
+  .centered-image {
+    margin-top: 20px;
+  }
+}
+
 .popup {
   margin-top: 34px;
   position: fixed;
