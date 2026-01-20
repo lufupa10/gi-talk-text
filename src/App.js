@@ -68,7 +68,8 @@ const App = () => {
                     <img className="centered-image" src="gi.png" alt="Descrição da Imagem" />
                     <div className="subtitle">GITALKTEXT</div>
                     <p className="description">Conversão de aúdio em texto.</p>
-                    <p className="description">Pack01.</p>
+                    <p className="description">Pack01.</p> 
+                    <p className="description">Pack02.</p>
                 </div>
                 <br />
                 
